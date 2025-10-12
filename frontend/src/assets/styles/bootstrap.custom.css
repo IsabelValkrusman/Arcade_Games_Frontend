@@ -8,7 +8,432 @@
  
  jaoks */
 
+ .image-slider img {
+  width: 100%;
+  height: auto; /* Või fikseeritud kõrgus, nt height: 300px; */
+  object-fit: cover; /* Kui tahad, et pildid lõigatakse samale suurusele */
+}
  
+ .language-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+  z-index: 10;
+}
+
+.language-switcher img {
+  width: 35px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.language-switcher img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Üldine keelevaliku stiil */
+.language-select {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+  z-index: 10;
+}
+
+.language-select img {
+  width: 35px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.language-select img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Slaidiesituse nupud */
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.slider-button {
+  font-size: 2rem;
+  color: #542010;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.slider-button:hover {
+  color: #8b4f34;
+}
+
+.slider-button:first-of-type {
+  left: 10px;
+}
+
+.slider-button:last-of-type {
+  right: 10px;
+}
+
+/* Peamine tekst ja info stiil */
+.info-container h3 {
+  font-size: 50px;
+  color: #542010;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.info-container p {
+  font-size: 20px;
+  color: #333;
+  font-family: 'system-ui', sans-serif;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Pildi- ja kaardikonteiner */
+.image-col .header-image {
+  height: 150%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.map-container iframe {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tripadvisor-image {
+  width: 45%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tripadvisor-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+/* Üldine keelevaliku stiil */
+.language-select {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+.language-select button {
+  background-color: #007bff; /* sinine värv */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.language-select button:hover {
+  background-color: #0056b3; /* tumedam sinine hover */
+}
+.language-select button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+}
+.language-select img {
+  width: 35px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.language-select img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Üldine keelevaliku stiil */
+.language-flags {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+.language-flags button {
+  background-color: #007bff; /* sinine värv */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.language-flags button:hover {
+  background-color: #0056b3; /* tumedam sinine hover */
+}
+.language-flags button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+}
+.language-flags img {
+  width: 35px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.language-flags img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* FOOOOOD SCREEEN*/
+div {
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 10px;
+}
+
+.language-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.language-buttons button {
+  background-color: #007bff; /* sinine värv */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;   /* Taustavärv (valikuline) */
+}
+
+.flag-icon {
+  width: 35px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;     /* Animatsioon muudele muudatustele */
+}
+
+.flag-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);         /* Suurenda lipp hiirega hõljumisel */
+}
+
+.flag-icon.active {
+  border: 2px solid #007bff;        /* Aktiivsele lipule sinine ääris */
+  border-radius: 4px;               /* Ümarad nurgad äärisel */
+}
+
+
+
+/* Section styling */
+h2 {
+  color: #4CAF50;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+section {
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Text and item layout */
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 18px;
+}
+
+.price {
+  color: #444;
+  font-weight: bold;
+}
+
+/* Pizza Order section */
+.pizza-order {
+  background-color: #f1f1f1;
+  border: 2px dashed #ff9800;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+.pizza-order h2 {
+  color: #ff9800;
+  font-size: 22px;
+}
+.pizza-order p {
+  font-size: 18px;
+}
+.pizza-order ul {
+  font-size: 18px;
+  color: #555;
+}
+
+
+
+
+
+ .slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Valige oma soovitud laius */
+  margin: auto;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+  color: #542010;
+}
+
+.slider-button:first-child {
+  left: 10px; /* Vasak nupp */
+}
+
+.slider-button:last-child {
+  right: 10px; /* Parem nupp */
+}
+
+
+
+ .empty-info-box {
+  border: 2px solid #ddd;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+}
+
+
+/* HomeScreen.css */
+.map-container,
+.image-container {
+    position: relative;
+}
+
+.tripadvisor-image {
+    border-radius: 2px;
+}
+
+
+/* SlideShow.css */
+.slideshow {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.slide-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.slideshow-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
+
+/* Header.css */
+.header {
+  background-color: white;
+  color: black;
+  padding: 1rem 0;
+  font-weight: bold; /* Makes text bold */
+}
+
+.header-text {
+  color: black;
+  font-size: 1.5rem; /* Adjust font size as needed */
+  font-weight: bold; /* Makes text bold */
+}
+
+
+
+
+
+ /* Product.css */
+.product-card {
+  background-color: #ffffff; /* White background for the entire card */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.product-link {
+  text-decoration: none;
+  color: #000000; /* Black text */
+}
+
+.product-link:hover {
+  text-decoration: underline;
+}
+
+.product-card-title {
+  font-family: 'shrift1'; /* Example font family */
+}
+
+
+ .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  margin-left: auto;
+}
+
+
+.brand-style {
+  font-size: 2em;
+  color: brown;
+}
+
+
 
 
 .info-box {
@@ -36,7 +461,7 @@
 
 
 .info-box {
-    background-color: #000; /* Hall taustavärv */
+    background-color: 	#fff; /* Hall taustavärv */
     border: 1px solid #ccc; /* Piirjoon */
     border-radius: 10px; /* Ümardatud nurgad */
     padding: 20px; /* Täidetühjend */
@@ -130,7 +555,7 @@
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  /*KOGU TEKSTI VARV*/--bs-body-color: #f4f4f4;
+  /*KOGU TEKSTI VARV*/--bs-body-color: #542010;
   --bs-emphasis-color: #000;
   --bs-emphasis-color-rgb: 0, 0, 0;
   --bs-secondary-color: rgba(123, 138, 139, 0.75);
@@ -141,7 +566,7 @@
   --bs-tertiary-color-rgb: 123, 138, 139;
   --bs-tertiary-bg: #f4f4f4;
   --bs-tertiary-bg-rgb: 244, 244, 244;
- /*KOGU TAUSTA VARV*/ --bs-body-bg: 	#000;
+ /*KOGU TAUSTA VARV*/ --bs-body-bg: 					#ffffff		 /*#8b0000*/;
   --bs-body-bg-rgb: 255, 255, 255;
   --bs-link-color: #3c4c5d;
   --bs-link-color-rgb: 60, 76, 93;

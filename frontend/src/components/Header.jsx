@@ -1,79 +1,57 @@
 import React from 'react';
-import { Navbar, Nav, Container, NavDropdown, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
-import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../slices/authSlice'; // Importi logout action
 
-const Header = () => {
-    const { userInfo } = useSelector(state => state.auth);
-    const dispatch = useDispatch(); // Hook useDispatch
+const Header = ({ userInfo, logoutHandler }) => {
+  const linkStyle = {
+    fontSize: '1.5em', // Suur teksti suurus
+    color: '#ffffff',   // Värv
+  };
 
-    const logoutHandler = () => {
-        dispatch(logout()); // Dispatchi logout action
-    };
+  return (
+    <header style={{ backgroundColor: "#900C3F " }}>
+      <Navbar style={{backgroundColor: '	#800020 ', border: "none" }} variant='dark' expand="lg" collapseOnSelect>
+        <Container>
+          <Navbar.Brand href="/" style={{ fontSize: '28px', color: '#542010', fontFamily: 'Impact, sans-serif', display: 'flex', alignItems: 'center' }}>
+            <span style={{ fontSize: '40px', fontWeight: 'bold', color: '#ffffff' }}>HALINGA RESTORAN</span>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className='mx-auto'>
+              <LinkContainer to='/' style={{ fontSize: '25px', color: '#ffffff',  fontFamily: 'system-ui', fontWeight: 'bold' }}>
+                <Nav.Link style={linkStyle}>
+                  Esileht
+                </Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/food' style={{ fontSize: '25px', color: '#ffffff',  fontFamily: 'system-ui', fontWeight: 'bold' }}>
+                <Nav.Link style={linkStyle}>
+                  Toitlustus
+                </Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/party' style={{ fontSize: '25px', color: '#ffffff',  fontFamily: 'system-ui', fontWeight: 'bold' }}>
+                <Nav.Link style={linkStyle}>
+                  Üritused
+                </Nav.Link>
+              </LinkContainer>
 
-    return (
-        <header style={{ backgroundColor: "#ffeb3b" }}>
-            <Navbar style={{ backgroundColor: "#f4f4f4", border: "none" }} variant='dark' expand="lg" collapseOnSelect>
-                <Container>
-                    <Navbar.Brand href="/">VideoGames</Navbar.Brand>
-                    <Navbar.Toggle aria-controls='basic-navbar-nav' />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className='mx-auto'>
-                            <LinkContainer to='/'>
-                                <Nav.Link>
-                                    Esileht
-                                </Nav.Link>
-                            </LinkContainer>
-                            <LinkContainer to='/price'>
-                                <Nav.Link>
-                                    Hinnad
-                                </Nav.Link>
-                            </LinkContainer>
-                            <LinkContainer to='/food'>
-                                <Nav.Link>
-                                    Toitlustus
-                                </Nav.Link>
-                            </LinkContainer>
-                            <LinkContainer to='/rules'>
-                                <Nav.Link>
-                                    Reeglid
-                                </Nav.Link>
-                            </LinkContainer>
-                            <LinkContainer to='/party'>
-                                <Nav.Link>
-                                    Üritused
-                                </Nav.Link>
-                            </LinkContainer>
-                        </Nav>
-                        <Nav className='ms-auto'>
-                            {userInfo ? (
-                                <>
-                                    <p>Sisse logitud: {userInfo.name}</p>
-                                    <Button onClick={logoutHandler} variant="outline-dark">
-                                        Logi välja
-                                    </Button>
-                                </>
-                            ) : (
-                                <LinkContainer to='/login'>
-                                    <Nav.Link href='/login'>
-                                        <FaUser /> Logi Sisse
-                                    </Nav.Link>
-                                </LinkContainer>
-                            )}
-
-                            <LinkContainer to='/cart'>
-                                <Nav.Link>
-                                    <FaShoppingCart /> Korv
-                                </Nav.Link>
-                            </LinkContainer>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </header>
-    )
-}
+              <LinkContainer to='/group' style={{ fontSize: '25px', color: '#ffffff',  fontFamily: 'system-ui', fontWeight: 'bold' }}>
+                <Nav.Link style={linkStyle}>
+                  Gruppimenüü
+                </Nav.Link>
+              </LinkContainer>
+               
+              <LinkContainer to='/arcade' style={{ fontSize: '25px', color: '#ffffff' , fontFamily: 'system-ui', fontWeight: 'bold' }}>
+                <Nav.Link style={linkStyle}>
+                  Mänguaparaadid
+                </Nav.Link>
+              </LinkContainer>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </header>
+  );
+};
 
 export default Header;

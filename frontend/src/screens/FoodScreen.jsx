@@ -1,41 +1,160 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Spinner, Alert } from 'react-bootstrap';  // Importige Bootstrap Spinner ja Alert
 
 const FoodScreen = () => {
-    const { id } = useParams();
+  const { id } = useParams();
 
-    // Siin saate kasutada id väärtust vastavalt vajadusele, nt päringu tegemiseks serverisse
-    // või vastavate hindade kuvamiseks
+  // Keele valik (default on "ee" - eesti keel)
+  const [language, setLanguage] = useState('ee');
 
-    return (
-        
-        <div className="container text-center">
-            <div className="row justify-content-center">
-                <div className="col-md-6">
-                    <div className="info-box">
-                        <h1>Toitlustus</h1>
-                        <div className="info-container">
-                            <p>
-                                <strong>Baar on avatud 24/7</strong>
-                                <br />
-                                <br />
-                                    	Tere tulemast meie hubasesse baari, kus saad nautida parimat fastfoodi ja maitsevaid kokteile! Meie mitmekülgne menüü pakub midagi igaühele, alustades hõrgutavatest burgeritest ja krõbedatest kanatükkidest kuni värske salati ja wrapideni. Meie kokteilivalik on samuti muljetavaldav, kus leiad klassikalised lemmikud nagu mojito ja margarita ning ka põnevad uuenduslikud segud. Lisaks pakume ka alkoholivabu alternatiive ja spetsiaalseid jooke, mis sobivad ideaalselt igale maitsele.
-                                        <br />
-                                        Meie baar on ideaalne koht nii lõõgastavateks õhtusöökideks sõpradega kui ka kiireteks eineteks pärast pikka tööpäeva. Meie sõbralik ja külalislahke personal tagab alati meeldiva kogemuse ning aitab sul valida just sinu maitsele vastavaid roogasid ja jooke.
-                                        <br />
-                                        Lisaks maitseelamustele pakume ka meeldivat atmosfääri ja mugavaid istekohti nii siseruumides kui ka väljas terrassil, kus saab nautida värske õhu ja linnamelu võlusid. Üheskoos loome me meeldejääva kogemuse, mis jääb meelde veel kauaks pärast lahkumist. 
-                                        <br />
-                                        Tule külasta meid ja avasta uusi maitseid meie lahedas baaris! 
-                                <br />
-                                Tasuda saab nii sularahas kui ka pangakaardiga.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+  // Keele vahetamise funktsioonid
+  const changeLanguage = (lang) => {
+    setLanguage(lang);
+  };
+
+  // Menüü sektsioonide tekstide kaardistamine vastavalt keelele
+  const menuTexts = {
+    
+    ee: {
+      sections: [
+        {
+          title: '',
+          content: (
+            <div>
+              <img 
+                src="/images/3330.png" 
+                alt="Menüü pilt" 
+                style={{ width: '80%', height: 'auto', display: 'block', margin: '0 auto 10px auto' }}  
+              />
+              <p>
+              
+                <br />
+              </p>
             </div>
+          ),
+        },
+
+        {
+          title: '',
+          content: (
+            <p style={{ fontSize: '16px', color: '#000', marginTop: '20px' }}>
+            
+            </p>
+          ),
+        }
+      ],
+      pizzaOrder: (
+        <div className="pizza-order">
+        
         </div>
-    );
+      )
+    },
+    en: {
+      sections: [
+        {
+          title: '',
+          content: (
+            <div>
+              <img 
+                src="/images/3332.png" 
+                alt="Menüü pilt" 
+                style={{ width: '80%', height: 'auto', display: 'block', margin: '0 auto 10px auto' }} 
+              />
+              <p>
+              
+                <br />
+              </p>
+            </div>
+          ),
+        },
+   
+
+        {
+          title: '',
+          content: (
+            <p style={{ fontSize: '16px', color: '#000', marginTop: '20px' }}>
+             
+            </p>
+          ),
+        }
+      ],
+      pizzaOrder: (
+        <div className="pizza-order">
+   
+        </div>
+      )
+    },
+    ru: {
+      sections: [
+        {
+          title: '',
+          content: (
+            <div>
+              <img 
+                src="/images/3331.png" 
+                alt="Menüü pilt" 
+                style={{ width: '80%', height: 'auto', display: 'block', margin: '0 auto 10px auto' }} 
+              />
+              <p>
+              
+                <br />
+              </p>
+            </div>
+          ),
+        },
+        
+        {
+          title: '',
+          content: (
+            <p style={{ fontSize: '16px', color: '#000', marginTop: '20px' }}>
+            </p>
+          ),
+        }
+      ],
+    
+    },
+  };
+
+  return (
+    <div>
+    {/* Header Section */}
+    <header className="header">
+      <div className="language-buttons">
+        <img 
+            src="/images/flag-en.svg" 
+            alt="English" 
+            className={`flag-icon ${language === 'en' ? 'active' : ''}`}
+            onClick={() => changeLanguage('en')}
+        />
+        <img 
+            src="/images/flag-ru.svg" 
+            alt="Russian" 
+            className={`flag-icon ${language === 'ru' ? 'active' : ''}`}
+            onClick={() => changeLanguage('ru')}
+        />
+        <img 
+            src="/images/flag-ee.svg" 
+            alt="Estonian" 
+            className={`flag-icon ${language === 'ee' ? 'active' : ''}`}
+            onClick={() => changeLanguage('ee')}
+        />
+      </div>
+    </header>
+
+   
+
+      {/* Pealkiri ja teksti sisu vastavalt valitud keelele */}
+      {menuTexts[language].sections.map((section, index) => (
+        <div key={index}>
+          <h2>{section.title}</h2>
+          {section.content}
+        </div>
+      ))}
+
+     
+    </div>
+  );
 };
 
 export default FoodScreen;

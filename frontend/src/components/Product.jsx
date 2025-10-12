@@ -11,14 +11,14 @@ const Product = ({ product }) => {
 
       <Card.Body>
         <Link to={`/product/${product._id}`}>
-          <Card.Title as='div' style={{ backgroundColor: "#000", fontFamily: 'shrift1', padding: "20px", borderRadius: "10px", color: "#fff" }}>
+          <Card.Title as='div' style={{ backgroundColor: "#ffffff", fontFamily: 'shrift1', padding: "20px", borderRadius: "10px", color: "#000000" }}>
             <strong>{product.name}</strong>
           </Card.Title>
         </Link>
 
         <Link to={`/product/${product._id}`}>
           <Card.Title as='div' className='product-title'>
-            <strong>{product.description}</strong>
+           
           </Card.Title>
         </Link>
       </Card.Body>
